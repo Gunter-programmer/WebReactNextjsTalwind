@@ -13,6 +13,20 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-0 sm:px-0 lg:px-0">
           <div className="flex justify-between items-center h-16 relative">
+            {/* Логотип слева */}
+            <div
+              className="absolute flex items-center"
+              style={{ left: "-40px" }} // Смещение логотипа левее на 40px
+            >
+              <Link href="/">
+                <img
+                  src="/fon_logo.png"
+                  alt="Логотип"
+                  className="h-16 w-auto cursor-pointer"
+                />
+              </Link>
+            </div>
+
             {/* Меню, выровненное по центру */}
             <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex space-x-12 items-center">
               <Link
@@ -39,7 +53,10 @@ export default function Header() {
             </div>
 
             {/* Кнопки справа */}
-            <div className="absolute right-0 flex space-x-4 items-center pr-4">
+            <div
+              className="absolute flex space-x-4 items-center"
+              style={{ right: "-40px" }} // Смещение кнопок правее на 40px
+            >
               <button className="bg-blue-500 px-4 py-2 rounded text-white hover:bg-blue-700">
                 Войти
               </button>
