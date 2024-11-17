@@ -11,12 +11,11 @@ export default function Header() {
           backgroundImage: "url('/fon.png')", // Фон панели
         }}
       >
-        <div className="max-w-7xl mx-auto px-0 sm:px-0 lg:px-0">
+        <div className="max-w-full mx-auto px-4">
           <div className="flex justify-between items-center h-16 relative">
             {/* Логотип слева */}
             <div
               className="absolute flex items-center"
-              style={{ left: "-40px" }} // Смещение логотипа левее на 40px
             >
               <Link href="/">
                 <img
@@ -55,7 +54,7 @@ export default function Header() {
             {/* Кнопки справа */}
             <div
               className="absolute flex space-x-4 items-center"
-              style={{ right: "-40px" }} // Смещение кнопок правее на 40px
+              style={{ right: "0px" }} // Смещение кнопок правее на 40px
             >
               <button className="bg-blue-500 px-4 py-2 rounded text-white hover:bg-blue-700">
                 Войти

@@ -1,6 +1,7 @@
 import localFont from "next/font/local"; //Общие элементы
 import Header from "@/components/Header"; 
 import Footer from "@/components/Footer";
+import MiniChat from "@/components/MiniChat";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
       >
         <Header/>
         {children}
+        <MiniChat/>
         <Footer/>
       </body>
     </html>
