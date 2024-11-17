@@ -6,7 +6,7 @@ export default function Main() {
     <div className="min-h-screen flex flex-col bg-gray-100">
       {/* Блок с изображением */}
       <div
-        className="w-full h-[70vh] bg-gray-800 flex justify-center items-center"
+        className="w-full h-[70vh] bg-gray-900 flex justify-center items-center"
         style={{
           backgroundImage: "url('https://npo-at.com/wp-content/themes/npo-at-com-2022/assets/img/fedor.webp')", // Фон сайта
           backgroundSize: "contain", // Полностью помещаем картинку
