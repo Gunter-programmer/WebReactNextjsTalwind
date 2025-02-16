@@ -1,6 +1,8 @@
-import localFont from "next/font/local"; //Общие элементы
-import Header from "@/components/Header"; 
+import localFont from "next/font/local"; // Общие элементы
+import ClientProvider from "@/components/ClientProvider"; // Импортируем обертку для клиентских компонентов
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { SessionProvider } from "next-auth/react";
 import MiniChat from "@/components/MiniChat";
 import "./globals.css";
 
@@ -26,10 +28,12 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header/>
-        {children}
-        <MiniChat/>
-        <Footer/>
+        <ClientProvider>
+          <Header />
+          {children}
+          <MiniChat />
+          <Footer />
+        </ClientProvider>
       </body>
     </html>
   );

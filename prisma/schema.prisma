@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                Int      @id @default(autoincrement())
+  email             String   @unique
+  password          String
+  firstName         String?  // Имя пользователя
+  lastName          String?  // Фамилия пользователя
+  education         String?  // Уровень образования
+  currentProfession String?  // Текущая профессия
+  targetProfession  String?  // Целевая профессия
+  timeToAchieve     String?  // Срок достижения цели
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  testResult        Int?     // Поле для хранения результата теста
+}
