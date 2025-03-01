@@ -1,4 +1,4 @@
-// File: C:\Users\Евгений\Projects\nextjs_first\src\app\page.jsx
+// File: C:\programming\Project reactor nextjs+react\nextjs_first\WebReactNextjsTalwind\src\app\page.jsx
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
