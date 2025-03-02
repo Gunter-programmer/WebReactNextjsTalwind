@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client"; // Import only once
 import { getServerSession } from "next-auth/next"; // Import only once
-import { authOptions } from "@/app/api/auth/[...nextauth]/route"; // Import only once
+import { authOptions } from "@/app/api/auth/route"; // Import only once
 
 const prisma = new PrismaClient();
 
