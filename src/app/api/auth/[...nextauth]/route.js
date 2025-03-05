@@ -70,6 +70,7 @@ export const authOptions = {
       return session;
     },
   },
+  secret: process.env.NEXTAUTH_SECRET, // Добавьте эту строку
 };
 
 const handler = NextAuth(authOptions);
