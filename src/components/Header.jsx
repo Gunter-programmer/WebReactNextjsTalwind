@@ -107,7 +107,7 @@ export default function Header() {
                   <p className="text-gray-200">Привет!</p>
                   <button
                     onClick={handleSignOut}  // Вызов функции для выхода
-                    className="bg-red-500 px-4 py-2 rounded text-white hover:bg-red-700"
+                    className="bg-red-500 px-4 py-2 rounded text-white hover:bg-red-700 w-full"
                   >
                     Выйти
                   </button>
@@ -117,13 +117,13 @@ export default function Header() {
                   {/* Кнопка Войти */}
                   <button
                     onClick={() => signIn()}
-                    className="bg-blue-500 px-4 py-2 rounded text-white hover:bg-blue-700"
+                    className="bg-blue-500 px-4 py-2 rounded text-white hover:bg-blue-700 w-full"
                   >
                     Войти
                   </button>
                   {/* Кнопка Регистрация */}
                   <Link href="/register">
-                    <button className="bg-yellow-600 px-4 py-2 rounded text-white hover:bg-yellow-700">
+                    <button className="bg-yellow-600 px-4 py-2 rounded text-white hover:bg-yellow-700 w-full">
                       Регистрация
                     </button>
                   </Link>
@@ -138,28 +138,28 @@ export default function Header() {
               <div className="flex flex-col space-y-4 p-4">
                 <Link
                   href="/"
-                  className="text-gray-100 hover:bg-gray-600 px-4 py-2 rounded"
+                  className="text-gray-100 hover:bg-gray-600 px-4 py-2 rounded text-center"
                 >
                   Главная
                 </Link>
                 <Link
                   href="/Courses"
-                  className="text-gray-100 hover:bg-gray-600 px-4 py-2 rounded"
+                  className="text-gray-100 hover:bg-gray-600 px-4 py-2 rounded text-center"
                 >
                   Курсы
                 </Link>
                 <Link
                   href="/Self_learning"
-                  className="text-gray-100 hover:bg-gray-600 px-4 py-2 rounded"
+                  className="text-gray-100 hover:bg-gray-600 px-4 py-2 rounded text-center"
                 >
                   Самообучение
                 </Link>
                 {session ? (
                   <>
-                    <p className="text-gray-200">Привет!</p>
+                    <p className="text-gray-200 text-center">Привет!</p>
                     <button
                       onClick={handleSignOut}
-                      className="bg-red-500 px-4 py-2 rounded text-white hover:bg-red-700"
+                      className="bg-red-500 px-4 py-2 rounded text-white hover:bg-red-700 w-full"
                     >
                       Выйти
                     </button>
@@ -168,12 +168,12 @@ export default function Header() {
                   <>
                     <button
                       onClick={() => signIn()}
-                      className="bg-blue-500 px-4 py-2 rounded text-white hover:bg-blue-700"
+                      className="bg-blue-500 px-4 py-2 rounded text-white hover:bg-blue-700 w-full"
                     >
                       Войти
                     </button>
                     <Link href="/register">
-                      <button className="bg-yellow-600 px-4 py-2 rounded text-white hover:bg-yellow-700">
+                      <button className="bg-yellow-600 px-4 py-2 rounded text-white hover:bg-yellow-700 w-full">
                         Регистрация
                       </button>
                     </Link>
