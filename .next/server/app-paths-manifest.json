@@ -1,7 +1,6 @@
 {
   "/page": "app/page.js",
-  "/Courses/page": "app/Courses/page.js",
-  "/Self_learning/page": "app/Self_learning/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/signin/page": "app/signin/page.js"
+  "/Courses/page": "app/Courses/page.js",
+  "/Self_learning/page": "app/Self_learning/page.js"
 }

@@ -7,6 +7,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 export default function Header() {
   const { data: session, status } = useSession(); // Получаем информацию о сессии
   const [userName, setUserName] = useState(""); // Для хранения имени пользователя
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Состояние мобильного меню
 
   // Логирование сессии для отладки
   useEffect(() => {
@@ -40,7 +41,7 @@ export default function Header() {
         <div className="max-w-full mx-auto px-4">
           <div className="flex justify-between items-center h-16 relative">
             {/* Логотип слева */}
-            <div className="absolute flex items-center">
+            <div className="flex items-center">
               <Link href="/">
                 <img
                   src="/fon_logo.png"
@@ -50,8 +51,31 @@ export default function Header() {
               </Link>
             </div>
 
-            {/* Меню, выровненное по центру */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex space-x-12 items-center">
+            {/* Кнопка мобильного меню */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-white focus:outline-none"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16m-7 6h7"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+
+            {/* Меню для десктопа */}
+            <div className="hidden md:flex space-x-12 items-center">
               <Link
                 href="/"
                 className="relative px-7 text-gray-100 transition hover:bg-gray-600 bg-opacity-50"
@@ -76,10 +100,7 @@ export default function Header() {
             </div>
 
             {/* Кнопки справа */}
-            <div
-              className="absolute flex space-x-4 items-center"
-              style={{ right: "0px" }} // Смещение кнопок правее на 40px
-            >
+            <div className="hidden md:flex space-x-4 items-center">
               {session ? (
                 <>
                   {/* Приветствие пользователя */}
@@ -110,6 +131,57 @@ export default function Header() {
               )}
             </div>
           </div>
+
+          {/* Мобильное меню */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden bg-gray-700">
+              <div className="flex flex-col space-y-4 p-4">
+                <Link
+                  href="/"
+                  className="text-gray-100 hover:bg-gray-600 px-4 py-2 rounded"
+                >
+                  Главная
+                </Link>
+                <Link
+                  href="/Courses"
+                  className="text-gray-100 hover:bg-gray-600 px-4 py-2 rounded"
+                >
+                  Курсы
+                </Link>
+                <Link
+                  href="/Self_learning"
+                  className="text-gray-100 hover:bg-gray-600 px-4 py-2 rounded"
+                >
+                  Самообучение
+                </Link>
+                {session ? (
+                  <>
+                    <p className="text-gray-200">Привет!</p>
+                    <button
+                      onClick={handleSignOut}
+                      className="bg-red-500 px-4 py-2 rounded text-white hover:bg-red-700"
+                    >
+                      Выйти
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      onClick={() => signIn()}
+                      className="bg-blue-500 px-4 py-2 rounded text-white hover:bg-blue-700"
+                    >
+                      Войти
+                    </button>
+                    <Link href="/register">
+                      <button className="bg-yellow-600 px-4 py-2 rounded text-white hover:bg-yellow-700">
+                        Регистрация
+                      </button>
+                    </Link>
+                  </>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </nav>
     </>
