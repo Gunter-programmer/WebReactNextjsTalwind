@@ -3,10 +3,12 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation"; // Импортируем useRouter
 
 export default function Header() {
   const { data: session, status } = useSession(); // Получаем информацию о сессии
   const [userName, setUserName] = useState(""); // Для хранения имени пользователя
+  const router = useRouter(); // Инициализируем useRouter
 
   // Логирование сессии для отладки
   useEffect(() => {
@@ -95,7 +97,7 @@ export default function Header() {
                 <>
                   {/* Кнопка Войти */}
                   <button
-                    onClick={() => signIn()}
+                    onClick={() => router.push("/auth")} // Перенаправляем на /auth
                     className="bg-blue-500 px-4 py-2 rounded text-white hover:bg-blue-700"
                   >
                     Войти

@@ -16,6 +16,29 @@ export default function Profile() {
   const [showTest, setShowTest] = useState(false);
   const [isTestCompleted, setIsTestCompleted] = useState(false);
 
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await fetch("/api/profile");
+        if (!response.ok) {
+          throw new Error("Ошибка загрузки профиля");
+        }
+        const data = await response.json();
+        setEducation(data.education || "");
+        setFirstName(data.firstName || "");
+        setLastName(data.lastName || "");
+        setCurrentProfession(data.currentProfession || "");
+        setTargetProfession(data.targetProfession || "");
+        setTimeToAchieve(data.timeToAchieve || "");
+        setTestResults(data.testResults || []);
+        setIsTestCompleted(data.testResults && data.testResults.length > 0);
+      } catch (error) {
+        console.error("Ошибка загрузки профиля:", error);
+      }
+    };
+    fetchProfile();
+  }, []);
+  
   // Подгрузка данных профиля
   useEffect(() => {
     const fetchProfile = async () => {

@@ -1,9 +1,12 @@
 "use client";
+
 import { signIn } from "next-auth/react";
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // Оставляем только useRouter
 
 export default function SignIn() {
   const [error, setError] = useState("");
+  const router = useRouter(); // Используем useRouter для перенаправления
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -12,17 +15,22 @@ export default function SignIn() {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const res = await signIn("credentials", {
-      redirect: false,
-      email,
-      password,
-    });
+    try {
+      const res = await signIn("credentials", {
+        redirect: false,
+        email,
+        password,
+      });
 
-    if (!res.ok) {
-      setError("Неверный email или пароль");
-    } else {
-      // Перенаправление в личный кабинет
-      window.location.href = "/profile";
+      if (res?.error) {
+        setError("Неверный email или пароль");
+      } else {
+        // Перенаправляем на "/profile"
+        router.push("/profile");
+      }
+    } catch (err) {
+      console.error("Ошибка входа:", err);
+      setError("Произошла ошибка, попробуйте снова");
     }
   };
 

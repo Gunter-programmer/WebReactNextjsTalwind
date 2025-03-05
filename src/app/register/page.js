@@ -30,7 +30,7 @@ export default function RegisterPage() {
       }
 
       // Перенаправление на страницу авторизации
-      router.push("/signin?callbackUrl=/profile"); // Убедитесь, что `/signin` существует
+      router.push("/auth"); // Убедитесь, что `/auth` существует
     } catch (err) {
       setError("Неожиданная ошибка при регистрации");
     }
