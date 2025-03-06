@@ -192,11 +192,11 @@ export default function Main() {
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent"></div>
-        <div className="relative z-10 text-center">
+        <div className="relative z-10 text-center px-8"> {/* Добавлен px-8 для отступов */}
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in">
             Добро пожаловать в мир технологий!
           </h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto animate-slide-up">
+          <p className="text-lg md:text-xl max-w-2xl mx-auto animate-slide-up px-8"> {/* Добавлен px-8 для отступов */}
             Мы помогаем создавать инновации, вдохновляем и разрабатываем решения
             для будущего.
           </p>
