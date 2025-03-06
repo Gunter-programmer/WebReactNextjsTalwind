@@ -73,7 +73,7 @@ export default function MiniChat() {
             isFullScreen
               ? "top-0 left-0 w-full h-full"
               : "bottom-4 right-4 w-80 h-auto"
-          } bg-white shadow-lg rounded-lg border border-gray-300`}
+          } bg-white shadow-lg rounded-lg border border-gray-300 z-50`}
         >
           {/* Заголовок чата */}
           <div className="bg-gray-800 text-white p-4 flex justify-between items-center">

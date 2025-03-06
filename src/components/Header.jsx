@@ -46,13 +46,13 @@ export default function Header() {
                 <img
                   src="/fon_logo.png"
                   alt="Логотип"
-                  className="h-16 w-auto cursor-pointer"
+                  className="h-16 w-auto cursor-pointer min-w-[100px] min-h-[64px]" // Фиксируем минимальные размеры
                 />
               </Link>
             </div>
 
             {/* Кнопка мобильного меню */}
-            <div className="md:hidden">
+            <div className="lg:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="text-white focus:outline-none"
@@ -75,7 +75,7 @@ export default function Header() {
             </div>
 
             {/* Меню для десктопа */}
-            <div className="hidden md:flex space-x-12 items-center">
+            <div className="hidden lg:flex space-x-12 items-center">
               <Link
                 href="/"
                 className="relative px-7 text-gray-100 transition hover:bg-gray-600 bg-opacity-50"
@@ -100,7 +100,7 @@ export default function Header() {
             </div>
 
             {/* Кнопки справа */}
-            <div className="hidden md:flex space-x-4 items-center">
+            <div className="hidden lg:flex space-x-4 items-center">
               {session ? (
                 <>
                   {/* Приветствие пользователя */}
@@ -117,7 +117,7 @@ export default function Header() {
                   {/* Кнопка Войти */}
                   <button
                     onClick={() => signIn()}
-                    className="bg-blue-500 px-4 py-2 rounded text-white hover:bg-blue-700 w-full"
+                    className="bg-green-700 px-4 py-2 rounded text-white hover:bg-green-800 w-full"
                   >
                     Войти
                   </button>
@@ -134,7 +134,7 @@ export default function Header() {
 
           {/* Мобильное меню */}
           {isMobileMenuOpen && (
-            <div className="md:hidden bg-gray-700">
+            <div className="lg:hidden absolute top-16 left-0 right-0 bg-gray-700 z-50">
               <div className="flex flex-col space-y-4 p-4">
                 <Link
                   href="/"
@@ -168,7 +168,7 @@ export default function Header() {
                   <>
                     <button
                       onClick={() => signIn()}
-                      className="bg-blue-500 px-4 py-2 rounded text-white hover:bg-blue-700 w-full"
+                      className="bg-green-700 px-4 py-2 rounded text-white hover:bg-green-800 w-full"
                     >
                       Войти
                     </button>
